@@ -1,58 +1,60 @@
-
-var numeroA = parseInt(prompt(`Inisra um numero aqui`))
-var numeroB = parseInt(prompt(`Insira um numero aqui`))
-console.log(`Numero A: ${numeroA} - Numero B: ${numeroB}`)
-var resultadoSoma, resultadoSubtracao, resultadoMultiplicacao, resultadoDivisao
+var arrayResultados = []
+var contador = 0
 
 var continuar = true
-while(continuar){
-var opcao = prompt(`Escolha a função/ 1 - Soma/ 2 - Subtração/ 3 - Multiplicação/ 4 - Divisão`)
+while (continuar) {
+    var numeroA = parseInt(prompt(`Inisra um numero aqui`))
+    var numeroB = parseInt(prompt(`Insira um numero aqui`))
+    console.log(`Numero A: ${numeroA} - Numero B: ${numeroB}`)
 
-if(opcao == 1){
-    CalcularSoma(numeroA, numeroB);
-}    
+    var opcao = prompt(`Escolha a função/ 1 - Soma/ 2 - Subtração/ 3 - Multiplicação/ 4 - Divisão`)
 
-else if(opcao == 2){
-    CalcularSubtracao(numeroA, numeroB);
-}
-    
-else if(opcao == 3){
-    CalcularMultiplicacao(numeroA, numeroB);
-}
-    
-else{
-    CalcularDivisao(numeroA, numeroB);
-}
-
-var desejacontinuar = prompt(`1 - Fazer outra operação/ 2 - Encerrar`)
-if(desejacontinuar != 1){
-    continuar = false
-}
-
-}
-
-function CalcularSoma(num1, num2){
-    console.log(`A soma será calculada aqui!`)
-    console.log(numeroA + numeroB)
-    return resultadoSoma
+    if (opcao == 1) {
+        arrayResultados[contador] = CalcularSoma(numeroA, numeroB);
+        console.log(`O resultado da soma é: ${arrayResultados[contador]}`)
+        contador++
     }
 
-    function CalcularSubtracao(num1, num2){
-    console.log(`A subtração será calculada aqui`)
-    console.log(numeroA - numeroB)
-    return resultadoSubtracao
+    else if (opcao == 2) {
+        arrayResultados[contador] = CalcularSubtracao(numeroA, numeroB);
+        console.log(`O resultado da subtração é: ${arrayResultados[contador]}`)
+        contador++
     }
 
-    function CalcularMultiplicacao(num1, num2){
-    console.log(`A multiplicação será calculada aqui`)
-    console.log(numeroA * numeroB)
-    return resultadoMultiplicacao
+    else if (opcao == 3) {
+        arrayResultados[contador] = CalcularMultiplicacao(numeroA, numeroB);
+        console.log(`O resultado da multiplicação é: ${arrayResultados[contador]}`)
+        contador++
     }
 
-    function CalcularDivisao(num1, num2){
-    console.log(`A divisão será calculada aqui`)
-    console.log(numeroA / numeroB)
-    return resultadoDivisao
-    }   
+    else {
+        arrayResultados[contador] = CalcularDivisao(numeroA, numeroB);
+        console.log(`O resultado da Divisão é: ${arrayResultados[contador]}`)
+        contador++
+    }
 
+    var desejacontinuar = prompt(`1 - Fazer outra operação/ 2 - Encerrar`)
+    if (desejacontinuar != 1) {
+        continuar = false
+    }
     
+}
+
+function CalcularSoma(num1, num2) {        
+    return num1 + num2  
+}
+
+function CalcularSubtracao(num1, num2) {
+        return num1 - num2
+}
+
+function CalcularMultiplicacao(num1, num2) {
+        return num1 * num2
+}
+
+function CalcularDivisao(num1, num2) {
+        return num1 / num2
+}
+
+
+
