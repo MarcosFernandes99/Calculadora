@@ -2,12 +2,13 @@ var arrayResultados = []
 var contador = 0
 
 var continuar = true
-while (continuar) {
+while (continuar) {    
+    
     var numeroA = parseInt(prompt(`Inisra um numero aqui`))
     var numeroB = parseInt(prompt(`Insira um numero aqui`))
     console.log(`Numero A: ${numeroA} - Numero B: ${numeroB}`)
 
-    var opcao = prompt(`Escolha a função/ 1 - Soma/ 2 - Subtração/ 3 - Multiplicação/ 4 - Divisão`)
+    var opcao = prompt(`Escolha a função/ 1 - Soma/ 2 - Subtração/ 3 - Multiplicação/ 4 - Divisão/ 5 - Exibir Histórico`)
 
     if (opcao == 1) {
         arrayResultados[contador] = CalcularSoma(numeroA, numeroB);
@@ -27,10 +28,13 @@ while (continuar) {
         contador++
     }
 
-    else {
+    else if (opcao == 4){
         arrayResultados[contador] = CalcularDivisao(numeroA, numeroB);
         console.log(`O resultado da Divisão é: ${arrayResultados[contador]}`)
         contador++
+    }
+    else{
+        ExibirHistórico();
     }
 
     var desejacontinuar = prompt(`1 - Fazer outra operação/ 2 - Encerrar`)
@@ -38,6 +42,11 @@ while (continuar) {
         continuar = false
     }
     
+}
+function ExibirHistórico(){
+    for(var i = 0; i < contador; i++){
+        console.log(arrayResultados[i])
+    }
 }
 
 function CalcularSoma(num1, num2) {        
